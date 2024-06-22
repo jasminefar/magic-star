@@ -1,0 +1,37 @@
+#i made this code the best I could!
+#took me awhile to debug
+
+import turtle as turtle
+
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+screen.title("Intricate Star Drawing")
+
+# Create a turtle object
+star = turtle.Turtle()
+star.speed(0)  # Fastest drawing speed
+star.width(2)
+star.color("yellow")
+
+# Function to draw a star with intricate pattern
+def draw_intricate_star(size, levels, angle):
+    if levels == 0:
+        return
+    else:
+        for _ in range(5):
+            star.forward(size)
+            draw_intricate_star(size / 3, levels - 1, angle)
+            star.right(angle)
+
+# Position the turtle to start drawing
+star.penup()
+star.goto(0, -200)
+star.pendown()
+
+# Draw the intricate star
+draw_intricate_star(300, 4, 144)
+
+# Hide the turtle and finish
+star.hideturtle()
+screen.mainloop()
